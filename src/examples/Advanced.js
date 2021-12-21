@@ -153,7 +153,7 @@ function Advanced () {
           Congratulations!
         </h2>
         <h2 className='infoText'>
-          You have a new match on Tinder!
+          You have a new match!
         </h2>
         </div>
       )}
