@@ -1,6 +1,11 @@
 import React, { useState, useMemo, useRef } from 'react'
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card'
+import {
+  CheckCircleOutlined,
+  CloseCircleOutlined,
+  UndoOutlined,
+} from '@ant-design/icons'
 
 const db = [
   {
@@ -87,7 +92,7 @@ function Advanced () {
         href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
         rel='stylesheet'
       />
-      <h1>React Tinder Card</h1>
+      <h1>How It Started: 2021</h1>
       <div className='cardContainer'>
         {db.map((character, index) => (
           <TinderCard
@@ -107,18 +112,50 @@ function Advanced () {
         ))}
       </div>
       <div className='buttons'>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button>
-        <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button>
-        <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}>Swipe right!</button>
+        {/* <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button> */}
+        {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
+        {/* <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><CheckCircleOutlined /></button> */}
+        <CloseCircleOutlined 
+          style={{ 
+            backgroundColor: !canSwipe && '#c3c4d3',
+            fontSize: '60px',
+            color: 'red', 
+            padding: '0.5rem'
+          }} 
+          onClick={() => swipe('left')} 
+        />
+        {canGoBack && <UndoOutlined 
+          style={{ 
+            backgroundColor: !canSwipe && '#c3c4d3',
+            fontSize: '60px',
+            color: 'blue', 
+            padding: '0.5rem'
+            }} 
+          onClick={() => goBack()} 
+        />}
+        <CheckCircleOutlined 
+          style={{ 
+            backgroundColor: !canSwipe && '#c3c4d3',
+            fontSize: '60px',
+            color: 'green', 
+            padding: '0.5rem'
+            }} 
+          onClick={() => swipe('right')} 
+        />
       </div>
       {lastDirection ? (
         <h2 key={lastDirection} className='infoText'>
           You swiped {lastDirection}
         </h2>
       ) : (
+        <div>
         <h2 className='infoText'>
-          Swipe a card or press a button to get Restore Card button visible!
+          Congratulations!
         </h2>
+        <h2 className='infoText'>
+          You have a new match on Tinder!
+        </h2>
+        </div>
       )}
     </div>
   )
