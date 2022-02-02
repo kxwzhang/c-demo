@@ -2,32 +2,52 @@ import React, { useState, useMemo, useRef } from 'react'
 // import TinderCard from '../react-tinder-card/index'
 import TinderCard from 'react-tinder-card'
 import {
-  CheckCircleOutlined,
-  CloseCircleOutlined,
+  CaretRightOutlined,
+  CaretLeftOutlined,
   UndoOutlined,
 } from '@ant-design/icons'
 
 const db = [
   {
-    name: 'Richard Hendricks',
-    url: './img/richard.jpg'
+    name: 'Valentine ♥️',
+    url: './img/hearts.PNG'
   },
   {
-    name: 'Erlich Bachman',
-    url: './img/erlich.jpg'
+    name: 'Star Star',
+    url: './img/starbies.jpg'
   },
   {
-    name: 'Monica Hall',
-    url: './img/monica.jpg'
+    name: 'Gen(ital)s',
+    url: './img/gens2.jpg'
   },
   {
-    name: 'Jared Dunn',
-    url: './img/jared.jpg'
+    name: 'Sweet Honey Dessert',
+    url: './img/sweethoney.jpg'
   },
   {
-    name: 'Dinesh Chugtai',
-    url: './img/dinesh.jpg'
-  }
+    name: 'Beach Towel',
+    url: './img/carmel.jpg'
+  },
+  {
+    name: 'Gens Couple',
+    url: './img/gens.jpg'
+  },
+  {
+    name: 'Porto\'s Lover',
+    url: './img/portos.jpg'
+  },
+  {
+    name: 'Miss Bibimbap',
+    url: './img/bibimbap.jpg'
+  },
+  {
+    name: 'Burrito Lover',
+    url: './img/burrito.jpg'
+  },
+   {
+    name: 'Windbreaker',
+    url: './img/windbreaker.jpg'
+  },
 ]
 
 function Advanced () {
@@ -51,7 +71,7 @@ function Advanced () {
 
   const canGoBack = currentIndex < db.length - 1
 
-  const canSwipe = currentIndex >= 0
+  const canSwipe = currentIndex > 0
 
   // set last direction and decrease current index
   const swiped = (direction, nameToDelete, index) => {
@@ -92,7 +112,7 @@ function Advanced () {
         href='https://fonts.googleapis.com/css?family=Alatsi&display=swap'
         rel='stylesheet'
       />
-      <h1>How It Started: 2021</h1>
+      <h1>Do you want to be my...?</h1>
       <div className='cardContainer'>
         {db.map((character, index) => (
           <TinderCard
@@ -114,8 +134,8 @@ function Advanced () {
       <div className='buttons'>
         {/* <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('left')}>Swipe left!</button> */}
         {/* <button style={{ backgroundColor: !canGoBack && '#c3c4d3' }} onClick={() => goBack()}>Undo swipe!</button> */}
-        {/* <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><CheckCircleOutlined /></button> */}
-        <CloseCircleOutlined 
+        {/* <button style={{ backgroundColor: !canSwipe && '#c3c4d3' }} onClick={() => swipe('right')}><CaretRightOutlined /></button> */}
+        {/* <CaretLeftOutlined 
           style={{ 
             backgroundColor: !canSwipe && '#c3c4d3',
             fontSize: '60px',
@@ -123,8 +143,8 @@ function Advanced () {
             padding: '0.5rem'
           }} 
           onClick={() => swipe('left')} 
-        />
-        {canGoBack && <UndoOutlined 
+        /> */}
+        {canGoBack && <CaretLeftOutlined 
           style={{ 
             backgroundColor: !canSwipe && '#c3c4d3',
             fontSize: '60px',
@@ -133,7 +153,7 @@ function Advanced () {
             }} 
           onClick={() => goBack()} 
         />}
-        <CheckCircleOutlined 
+        {canSwipe && <CaretRightOutlined 
           style={{ 
             backgroundColor: !canSwipe && '#c3c4d3',
             fontSize: '60px',
@@ -141,19 +161,19 @@ function Advanced () {
             padding: '0.5rem'
             }} 
           onClick={() => swipe('right')} 
-        />
+        />}
       </div>
       {lastDirection ? (
         <h2 key={lastDirection} className='infoText'>
-          You swiped {lastDirection}
+          {/* You swiped {lastDirection} */}
         </h2>
       ) : (
         <div>
         <h2 className='infoText'>
-          Congratulations!
+          Keep swiping...
         </h2>
         <h2 className='infoText'>
-          You have a new match!
+          to fill in the blank.
         </h2>
         </div>
       )}
