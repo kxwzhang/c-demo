@@ -144,7 +144,7 @@ function Advanced () {
           }} 
           onClick={() => swipe('left')} 
         /> */}
-        {canGoBack && <CaretLeftOutlined 
+        {canGoBack && <UndoOutlined 
           style={{ 
             backgroundColor: !canSwipe && '#c3c4d3',
             fontSize: '60px',
