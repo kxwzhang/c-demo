@@ -14,7 +14,7 @@ const db = [
   },
   {
     name: 'Star Star',
-    url: './img/starbies.JPG'
+    url: './img/starbies.jpg'
   },
   {
     name: 'Gen(ital)s',
